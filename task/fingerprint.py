@@ -54,7 +54,7 @@ def generate_fingerprints(args: Namespace, logger: Logger = None) -> List[List[f
     :param args: Arguments.
     :return: A list of lists of target fingerprints.
     """
-
+    # import pdb; pdb.set_trace()
     checkpoint_path = args.checkpoint_paths[0]
     if logger is None:
         logger = create_logger('fingerprints', quiet=False)
@@ -65,15 +65,22 @@ def generate_fingerprints(args: Namespace, logger: Logger = None) -> List[List[f
                          max_data_size=float("inf"),
                          skip_invalid_smiles=False)
     test_data = MoleculeDataset(test_data)
+    ####
+    test_df = test_data.get_smiles_df()
+    ####
 
     logger.info(f'Total size = {len(test_data):,}')
     logger.info(f'Generating...')
     # Load model
+    # import pdb; pdb.set_trace()
     model = load_checkpoint(checkpoint_path, cuda=args.cuda, current_args=args, logger=logger)
     model_preds = do_generate(
         model=model,
         data=test_data,
         args=args
     )
+    ####
+    test_df["fps"] = model_preds
+    ####
 
-    return model_preds
+    return test_df

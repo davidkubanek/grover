@@ -243,3 +243,13 @@ class MoleculeDataset(Dataset):
         :return: A MoleculeDatapoint if an int is provided or a list of MoleculeDatapoints if a slice is provided.
         """
         return self.data[idx]
+
+    ####
+    def get_smiles_df(self):
+        import pandas as pd
+        smiles = []
+        for i in range(len(self)):
+            smiles.append(self.data[i].smiles)
+        smiles_df = pd.DataFrame(smiles,columns=["smiles"])
+        return smiles_df
+    ####

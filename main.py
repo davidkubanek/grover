@@ -46,9 +46,20 @@ if __name__ == '__main__':
         cross_validate(args, logger)
     elif args.parser_name == 'fingerprint':
         train_args = get_newest_train_args()
+        ####
+        from argparse import Namespace
+        args_d = vars(args)
+        for k,v in vars(train_args).items():
+            if k not in args_d:
+                args_d[k] = v
+        args = Namespace(**args_d)
+        ####
         logger = create_logger(name='fingerprint', save_dir=None, quiet=False)
-        feas = generate_fingerprints(args, logger)
-        np.savez_compressed(args.output_path, fps=feas)
+        ####
+        fp_df = generate_fingerprints(args, logger)
+        # np.savez_compressed(args.output_path, fps=feas)
+        fp_df.to_pickle(args.output_path)
+        ####
     elif args.parser_name == 'predict':
         train_args = get_newest_train_args()
         avg_preds, test_smiles = make_predictions(args, train_args)
