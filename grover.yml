@@ -1,0 +1,23 @@
+name: grover
+channels:
+- pytorch
+- rdkit
+- conda-forge
+- rmg
+dependencies:
+  - boost
+  - boost-cpp
+  - descriptastorus
+  - numpy
+  - numpy-base
+  - pandas
+  - python
+  - pytorch
+  - tensorboard
+  - torchvision
+  - rdkit
+  - readline
+  - scikit-learn
+  - scipy
+  - tqdm
+  - typing
