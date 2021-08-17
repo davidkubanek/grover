@@ -44,7 +44,7 @@ def save_smiles(data_path, index, data, header):
 
 def save_features(data_path, index, data):
     fn = os.path.join(data_path, str(index) + ".npz")
-    np.savez_compressed(fn, features=data)
+    np.savez(fn, features=data)
 
 
 def run():

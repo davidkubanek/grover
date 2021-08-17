@@ -57,8 +57,8 @@ if __name__ == '__main__':
         logger = create_logger(name='fingerprint', save_dir=None, quiet=False)
         ####
         fp_df = generate_fingerprints(args, logger)
-        # np.savez_compressed(args.output_path, fps=feas)
-        fp_df.to_pickle(args.output_path)
+        fps = np.stack([fp for fp in fp_df["fps"]],axis=0)
+        np.savez(args.output_path,feats=fps)
         ####
     elif args.parser_name == 'predict':
         train_args = get_newest_train_args()
