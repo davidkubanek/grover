@@ -1,10 +1,11 @@
 name: grover
 channels:
-- pytorch
-- rdkit
-- conda-forge
-- rmg
+  - pytorch
+  - rdkit
+  - conda-forge
+  - rmg
 dependencies:
+  - python #=3.8.5 # added by me
   - boost
   - boost-cpp
   - descriptastorus
@@ -18,6 +19,6 @@ dependencies:
   - rdkit
   - readline
   - scikit-learn
-  - scipy
+  - scipy #= 1.5.2 #version added by me (earliest version I can get)
   - tqdm
   - typing

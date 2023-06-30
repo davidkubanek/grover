@@ -3,6 +3,11 @@ The vocabulary building scripts.
 """
 import os
 
+#my alternative for python 3.8
+#import sys
+#sys.path.append('../grover/grover/data')
+#from torchvocab import MolVocab
+
 from grover.data.torchvocab import MolVocab
 
 

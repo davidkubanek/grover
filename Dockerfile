@@ -25,6 +25,8 @@ RUN conda config --add channels rdkit
 RUN conda config --add channels conda-forge
 RUN conda config --add channels rmg
 RUN conda install --yes --file /tmp/requirements.txt
+#RUN pip install --requirement /tmp/requirements.txt
+
 
 # clean-up
 RUN rm -rf /var/lib/apt/lists/*
