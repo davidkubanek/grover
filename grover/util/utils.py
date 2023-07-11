@@ -18,10 +18,23 @@ from rdkit.Chem.Scaffolds import MurckoScaffold
 from torch import nn as nn
 from tqdm import tqdm as core_tqdm
 
-from grover.data import MoleculeDatapoint, MoleculeDataset, StandardScaler
-from grover.model.models import GroverFpGeneration, GroverFinetuneTask
-from grover.util.nn_utils import initialize_weights
-from grover.util.scheduler import NoamLR
+#my alternative for python 3.8
+import sys
+sys.path.append('../grover/grover/data')
+from moldataset import MoleculeDatapoint, MoleculeDataset
+from scaler import StandardScaler
+
+sys.path.append('../grover/grover/model')
+from models import GroverFpGeneration, GroverFinetuneTask
+
+sys.path.append('../grover/grover/util')
+from nn_utils import initialize_weights
+from scheduler import NoamLR
+
+# from grover.data import MoleculeDatapoint, MoleculeDataset, StandardScaler
+# from grover.model.models import GroverFpGeneration, GroverFinetuneTask
+# from grover.util.nn_utils import initialize_weights
+# from grover.util.scheduler import NoamLR
 
 
 def get_model_args():

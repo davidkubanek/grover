@@ -8,8 +8,14 @@ from multiprocessing import Pool
 import tqdm
 from rdkit import Chem
 
-from grover.data.task_labels import atom_to_vocab
-from grover.data.task_labels import bond_to_vocab
+#my alternative for python 3.8
+import sys
+sys.path.append('../grover/grover/data')
+from task_labels import atom_to_vocab, bond_to_vocab
+
+
+# from grover.data.task_labels import atom_to_vocab
+# from grover.data.task_labels import bond_to_vocab
 
 
 class TorchVocab(object):

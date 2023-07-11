@@ -7,8 +7,12 @@ import csv
 import shutil
 import numpy as np
 
+#my alternative for python 3.8
+import sys
+sys.path.append('../grover/grover/util')
+import utils as fea_utils
 
-import grover.util.utils as fea_utils
+#import grover.util.utils as fea_utils
 
 
 parser = ArgumentParser()

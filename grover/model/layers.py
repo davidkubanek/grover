@@ -11,7 +11,13 @@ import torch
 from torch import nn as nn
 from torch.nn import LayerNorm, functional as F
 
-from grover.util.nn_utils import get_activation_function, select_neighbor_and_aggregate
+
+#my alternative for python 3.8
+import sys
+sys.path.append('../grover/grover/util')
+from nn_utils import get_activation_function, select_neighbor_and_aggregate
+
+# from grover.util.nn_utils import get_activation_function, select_neighbor_and_aggregate
 
 
 class SelfAttention(nn.Module):
