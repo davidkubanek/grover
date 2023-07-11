@@ -13,7 +13,7 @@ dependencies:
   - numpy-base
   - pandas
   - python
-  - pytorch
+  - pytorch # downgraded from 2.0.1 to 1.13.1
   - tensorboard
   - torchvision
   - rdkit

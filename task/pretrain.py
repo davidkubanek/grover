@@ -78,7 +78,9 @@ def run_training(args, logger):
     local_gpu_idx = mgw.local_rank() if args.enable_multi_gpu else 0
     with_cuda = args.cuda
     if with_cuda:
-        torch.cuda.set_device(local_gpu_idx)
+        # my changes
+        torch.cuda.device(local_gpu_idx)
+        # torch.cuda.set_device(local_gpu_idx)
 
     # get rank an  number of workers
     rank = mgw.rank() if args.enable_multi_gpu else 0
